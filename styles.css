@@ -1,5 +1,10 @@
 html {
-    box-sizing: border-box;       
+    box-sizing: border-box;
+    background-color: #c9c9c9;   
+    font-family: monospace, sans-serif; 
+    text-align: center;  
+    max-width: 1600px;
+    width: 100%;
     }
    
 * {
@@ -14,10 +19,14 @@ html {
     box-sizing: inherit;
     
 }
-
+h1 {
+  margin-left: 10vw;
+}
 .board {
     width: 600px;
     height: 600px;
+    background-color: white;
+    
 }
 
 .slidecontainer {
@@ -59,3 +68,36 @@ html {
     cursor: pointer; /* Cursor on hover */
 
   }
+
+  
+
+  .buttons {
+    width: 20%;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10%;
+    align-items: flex-start;
+    justify-content: center;
+  }
+
+  .boardgame {
+    width: 80%;
+    margin: 5rem auto;
+    display: flex;
+    gap: 2rem
+  }
+
+  button {
+    width: 100px;
+    height: 2rem;
+    
+    background-color: #caf1e8;
+    border: #02ffa2 solid 0.1rem;
+  }
+
+body {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
