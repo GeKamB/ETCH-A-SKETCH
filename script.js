@@ -4,10 +4,15 @@ const board = document.querySelector('.board');
 const blackBtn = document.getElementById('black-btn');
 const randomBtn = document.getElementById('random-btn');
 const clearBtn = document.getElementById('clear-btn');
+const palletColor = document.getElementById('base');
+
+
+
 
 // Initialize the grid and color mode
 let gridSize = slider.value;
-let isRandom = true;
+let colo = palletColor.value;
+let isRandom = false;
 
 
 // Display the initial grid size on the output display 
@@ -32,7 +37,7 @@ function changeColor(e) {
     let randomColor = Math.floor(Math.random() * 16777215).toString(16);
     e.target.style.backgroundColor = "#" + randomColor;
   } else {
-    e.target.style.backgroundColor = 'black';
+    e.target.style.backgroundColor = colo;
   }
 }
 
@@ -52,11 +57,21 @@ slider.addEventListener('input', function() {
   output.textContent = gridSize;
   board.innerHTML = ''; // Clear the board container
   buildGrid(gridSize);
+  
 });
 
-board.addEventListener('mouseover', changeColor);
+palletColor.addEventListener('change', function () {
+  colo = this.value;
+})
+board.addEventListener('mousedown', function () {
+  board.addEventListener('mouseover', changeColor);
+});
+board.addEventListener('mouseup', function () {
+  board.removeEventListener('mouseover', changeColor);
+})
 
-blackBtn.addEventListener('click', function() {
+
+palletColor.addEventListener('click', function() {
   isRandom = false;
 });
 
